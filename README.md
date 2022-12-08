@@ -22,5 +22,7 @@ chmod +x *.sh
 
 # Run ansible playbooks
 cd 03_ansible_installs
+
 ansible-playbook 01_install_nodejs-lts_via_nvm.yml
+
 ...etc...
