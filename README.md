@@ -27,6 +27,17 @@ scripts in Powershell to finish WSL setup and save the rootfs snapshot into $HOM
 
 *01.5_setup_wsl_Fedora-37-OPTIONAL-restore_snapshot.ps1* script can be used to restore from this image
 
+in Powershell as an administrator.
+
+Run *01.2_setup_wsl_Fedora-37-customizations.sh* script in a restarted Fedora-37 WSL to update it with basic toolsets
+
+Run the:
+- *01.3_setup_wsl_Fedora-37-customizations.ps1*
+- *01.4_setup_wsl_Fedora-37-save_snapshot.ps1*
+scripts in Powershell to finish WSL setup and save the rootfs snapshot into $HOME\Downloads\Fedora-37-wsl.tar
+
+*01.5_setup_wsl_Fedora-37-OPTIONAL-restore_snapshot.ps1* script can be used to restore from this image
+
 Run the *02_install_ansible.sh* script in a restarted Fedora-37 WSL to install and set up Ansible
 
 
@@ -35,5 +46,8 @@ Run the *02_install_ansible.sh* script in a restarted Fedora-37 WSL to install a
 Run:
 - *ansible-playbook 03_ansible_installs/01_install_nodejs-lts_via_nvm.yml*
 - *ansible-playbook 03_ansible_installs/02_install_sdkman_java_maven_etc.yml*
+<<<<<<< HEAD
 
+=======
+>>>>>>> 28aa9e8a83ab3e100e48ca1186f6c900b758f5a4
 scripts in a restarted Fedora-37 WSL set up some predefined Ansible-managed components
