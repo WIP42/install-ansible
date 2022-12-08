@@ -1,4 +1,4 @@
-#first seen here: http://www.snip2code.com/Snippet/63701/Ansible-task-to-install-nvm-and-node
+#based on sample code from: https://web-mystery.com/articles/how-switch-between-different-nodejs-versions-linux
 ---
 - name: Install nvm && lts node
   hosts: localhost
