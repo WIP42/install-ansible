@@ -1,8 +1,7 @@
-sudo apt-add-repository ppa:ansible/ansible
-sudo apt-get update
-#sudo apt-get install ansible
-sudo apt install python3-pip
-sudo pip3 install pywinrm
-sudo pip3 install pyvmomi
-sudo pip3 install ansible
-sudo pip3 install ansible[azure]
+# Install and test ansible install
+## https://www.ansiblepilot.com/articles/how-to-install-ansible-in-fedora-37/
+sudo dnf update
+sudo dnf list available ansible
+sudo dnf install -y ansible
+sudo "rpm -qa | grep ansible"
+sudo dnf list ansible

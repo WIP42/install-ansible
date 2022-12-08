@@ -1,0 +1,14 @@
+#first seen here: http://www.snip2code.com/Snippet/63701/Ansible-task-to-install-nvm-and-node
+---
+- name: Install nvm && lts node
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "nvm install"
+    shell: >
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+     creates=/home/{{ ansible_user_id }}/.nvm/nvm.sh
+  - name: "lts node install"
+    shell: >
+     /bin/bash -c "source ~/.nvm/nvm.sh && nvm install --lts"
+     creates=/home/{{ ansible_user_id }}/.nvm/alias
