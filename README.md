@@ -27,6 +27,17 @@ scripts in Powershell to finish WSL setup and save the rootfs snapshot into $HOM
 
 *01.5_setup_wsl_Fedora-37-OPTIONAL-restore_snapshot.ps1* script can be used to restore from this image
 
+in Powershell as an administrator.
+
+Run *01.2_setup_wsl_Fedora-37-customizations.sh* script in a restarted Fedora-37 WSL to update it with basic toolsets
+
+Run the:
+- *01.3_setup_wsl_Fedora-37-customizations.ps1*
+- *01.4_setup_wsl_Fedora-37-save_snapshot.ps1*
+scripts in Powershell to finish WSL setup and save the rootfs snapshot into $HOME\Downloads\Fedora-37-wsl.tar
+
+*01.5_setup_wsl_Fedora-37-OPTIONAL-restore_snapshot.ps1* script can be used to restore from this image
+
 Run the *02_install_ansible.sh* script in a restarted Fedora-37 WSL to install and set up Ansible
 
 
