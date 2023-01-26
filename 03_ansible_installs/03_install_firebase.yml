@@ -1,0 +1,13 @@
+#based on sample code from: https://web-mystery.com/articles/how-switch-between-different-nodejs-versions-linux
+---
+- name: Install firebase
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "firebase-tools install"
+    shell: >
+     curl -sL https://firebase.tools | bash
+     creates=/usr/local/bin/firebase
+  - name: "firebase-tools npm install"
+    shell: >
+     npm install -g firebase-tools

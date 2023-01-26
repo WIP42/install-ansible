@@ -13,7 +13,7 @@ echo '[wsl2]'
 echo 'kernelCommandLine = sysctl.net.ipv4.ping_group_range=\"0 2000\"'
 echo ''
 
-sudo dnf -y install iproute findutils ncurses
+sudo dnf -y install iproute findutils ncurses lsof
 sudo dnf install -y vim
 sudo dnf install -y git
 
