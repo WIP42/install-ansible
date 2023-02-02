@@ -35,5 +35,7 @@ Run the *02_install_ansible.sh* script in a restarted Fedora-37 WSL to install a
 Run:
 - *ansible-playbook 03_ansible_installs/01_install_nodejs-lts_via_nvm.yml*
 - *ansible-playbook 03_ansible_installs/02_install_sdkman_java_maven_etc.yml*
+- *ansible-playbook 03_ansible_installs/03_install_firebase.yml*
+- *03_ansible_installs/04_install_microshift.sh*
 
 scripts in a restarted Fedora-37 WSL set up some predefined Ansible-managed components
