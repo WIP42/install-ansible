@@ -1,0 +1,10 @@
+#
+---
+- name: Install helm
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "Helm install"
+    ansible.builtin.dnf:
+      name: helm
+      state: latest
