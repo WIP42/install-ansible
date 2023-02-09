@@ -4,19 +4,43 @@
   hosts: localhost
   connection: local
   tasks:
-  - name: "add prometheus-community helm repo, update and install"
+  - name: "add bitnami helm repo, update and install prometheus and grafana"
     shell: >
      kubectl create namespace monitoring
-     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-     helm repo update
-     helm install -n monitoring prometheus prometheus-community/prometheus
-  - name: "add grafana helm repo, update and install"
-    shell: >
      helm repo add bitnami https://charts.bitnami.com/bitnami
      helm repo update
+     helm install -n monitoring kube-prometheus bitnami/kube-prometheus
      helm install -n monitoring grafana bitnami/grafana
      echo 'see https://blog.marcnuri.com/prometheus-grafana-setup-minikube:'
      echo 'login on Grafana with "admin" user and password:'
      echo `kubectl get secret grafana-admin --namespace monitoring -o jsonpath="{.data.GF_SECURITY_ADMIN_PASSWORD}" | base64 -d`
-     echo 'add prometheus datasource on http://prometheus-server:80'
+     echo 'add prometheus datasource on http://kube-prometheus-prometheus:9090'
      echo 'Kubernetes Dashboard bootstrap: head to Create (+) > Import section to Import via grafana.com and we set 6417 into the id field and click Load. Choose prometheus datasource'
+     echo "Example deploys:
+      pod/alertmanager-kube-prometheus-alertmanager-0
+      pod/grafana-...
+      pod/kube-prometheus-blackbox-exporter-...
+      pod/kube-prometheus-kube-state-metrics-...
+      pod/kube-prometheus-node-exporter-...
+      pod/kube-prometheus-operator-...
+      pod/prometheus-kube-prometheus-prometheus-0
+      service/alertmanager-operated
+      service/grafana
+      service/kube-prometheus-alertmanager
+      service/kube-prometheus-blackbox-exporter
+      service/kube-prometheus-kube-state-metrics
+      service/kube-prometheus-node-exporter
+      service/kube-prometheus-operator
+      service/kube-prometheus-prometheus
+      service/prometheus-operated
+      daemonset.apps/kube-prometheus-node-exporter
+      deployment.apps/grafana
+      deployment.apps/kube-prometheus-blackbox-exporter
+      deployment.apps/kube-prometheus-kube-state-metrics
+      deployment.apps/kube-prometheus-operator
+      replicaset.apps/grafana-...
+      replicaset.apps/kube-prometheus-blackbox-exporter-...
+      replicaset.apps/kube-prometheus-kube-state-metrics-...
+      replicaset.apps/kube-prometheus-operator-...
+      statefulset.apps/alertmanager-kube-prometheus-alertmanager
+      statefulset.apps/prometheus-kube-prometheus-prometheus"
