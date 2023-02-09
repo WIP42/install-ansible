@@ -1,0 +1,13 @@
+#
+---
+- name: Install helm
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "Helm requires openssl"
+    ansible.builtin.dnf:
+      name: openssl
+      state: latest
+  - name: "Helm install"
+    shell: >
+     curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash

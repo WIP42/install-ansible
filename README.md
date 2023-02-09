@@ -37,6 +37,6 @@ Run:
 - *ansible-playbook 03_ansible_installs/02_install_sdkman_java_maven_etc.yml*
 - *ansible-playbook 03_ansible_installs/03_install_firebase.yml*
 - *03_ansible_installs/04_install_microshift.sh*
-- *sudo ansible-playbook 05_install_helm.yml -f 10 --verbose*
+- ...etc
 
 scripts in a restarted Fedora-37 WSL set up some predefined Ansible-managed components

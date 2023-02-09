@@ -1,0 +1,38 @@
+#based on sample code from: https://milindasenaka96.medium.com/setup-prometheus-and-grafana-to-monitor-the-k8s-cluster-e1d35343d7a9
+---
+- name: Install prometheus and grafana
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "add prometheus-community helm repo, update and install"
+    shell: >
+     kubectl create namespace monitoring
+     helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+     helm repo update
+     helm install -n monitoring prometheus prometheus-community/kube-prometheus-stack
+     echo 'see https://blog.marcnuri.com/prometheus-grafana-setup-minikube:'
+     echo 'login on Grafana with "admin" user and password: prom-operator'
+     echo 'Kubernetes Dashboard bootstrap: head to Create (+) > Import section to Import via grafana.com and we set 6417 into the id field and click Load. Choose prometheus datasource'
+     echo "Example deploys:
+      pod/alertmanager-prometheus-kube-prometheus-alertmanager-0
+      pod/prometheus-grafana-...
+      pod/prometheus-kube-prometheus-operator-...
+      pod/prometheus-kube-state-metrics-...
+      pod/prometheus-prometheus-kube-prometheus-prometheus-0
+      pod/prometheus-prometheus-node-exporter-...
+      service/alertmanager-operated
+      service/prometheus-grafana
+      service/prometheus-kube-prometheus-alertmanager
+      service/prometheus-kube-prometheus-operator
+      service/prometheus-kube-prometheus-prometheus
+      service/prometheus-kube-state-metrics
+      service/prometheus-operated
+      service/prometheus-prometheus-node-exporter
+      daemonset.apps/prometheus-prometheus-node-exporter
+      deployment.apps/prometheus-kube-prometheus-operator
+      deployment.apps/prometheus-kube-state-metrics
+      replicaset.apps/prometheus-grafana-...
+      replicaset.apps/prometheus-kube-prometheus-operator-...
+      replicaset.apps/prometheus-kube-state-metrics-...
+      statefulset.apps/alertmanager-prometheus-kube-prometheus-alertmanager
+      statefulset.apps/prometheus-prometheus-kube-prometheus-prometheus"

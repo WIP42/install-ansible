@@ -41,6 +41,11 @@
   - name: "quarkus install"
     shell: >
      bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install quarkus"
+     echo '# 02 Quarkus' >> ~/.bash_profile
+     echo 'source <(quarkus completion)' >> ~/.bash_profile
+     echo 'alias q=quarkus' >> ~/.bash_profile
+     echo 'complete -F _complete_quarkus q' >> ~/.bash_profile
+     echo '' >> ~/.bash_profile
   - name: "spark install"
     shell: >
      bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install spark"

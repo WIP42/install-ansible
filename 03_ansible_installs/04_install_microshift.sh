@@ -23,3 +23,7 @@ sudo cat /var/lib/microshift/resources/kubeadmin/kubeconfig > ~/.kube/config
 echo 'Verify that MicroShift is running. Examples:'
 echo 'oc get cs'
 echo 'watch oc get pods -A'
+
+echo '# 04 Openshift' >> ~/.bash_profile
+echo 'source <(oc completion bash)' >> ~/.bash_profile
+echo '' >> ~/.bash_profile

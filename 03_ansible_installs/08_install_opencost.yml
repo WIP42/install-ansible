@@ -1,0 +1,9 @@
+#based on sample code from: https://www.opencost.io/docs/install
+---
+- name: Install opencost
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "add opencost and install"
+    shell: >
+     kubectl apply --namespace opencost -f https://raw.githubusercontent.com/opencost/opencost/develop/kubernetes/opencost.yaml

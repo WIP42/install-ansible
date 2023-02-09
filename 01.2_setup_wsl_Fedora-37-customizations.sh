@@ -16,6 +16,7 @@ echo ''
 sudo dnf -y install iproute findutils ncurses lsof
 sudo dnf install -y vim
 sudo dnf install -y git
+sudo dnf install -y bash-completion
 
 # Base images have no man pages, add those:
 grep -v nodocs /etc/dnf/dnf.conf | sudo tee /etc/dnf/dnf.conf
