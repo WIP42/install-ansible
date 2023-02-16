@@ -1,0 +1,12 @@
+#based on: https://www.kubecost.com/install#show-instructions
+---
+- name: Install kubecost
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "add kubecost and install"
+    shell: >
+     minikube addons enable ingress
+     helm repo add kubecost https://kubecost.github.io/cost-analyzer
+     helm repo update
+     helm upgrade --install kubecost kubecost/cost-analyzer -n kubecost --create-namespace
