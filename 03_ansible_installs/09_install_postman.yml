@@ -1,0 +1,11 @@
+#
+---
+- name: Install hePostmanlm
+  hosts: localhost
+  connection: local
+  tasks:
+  - name: "Postman install"
+    become: true
+    ansible.builtin.snap:
+      name: postman
+      state: present

@@ -5,9 +5,27 @@
   connection: local
   tasks:
   - name: "Helm requires openssl"
-    ansible.builtin.dnf:
+    become: true
+    ansible.builtin.apt:
       name: openssl
       state: latest
-  - name: "Helm install"
+  - name: "Helm requires apt-transport-https key"
     shell: >
-     curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+     curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+  - name: "Helm requires apt-transport-https"
+    ansible.builtin.apt:
+      name: apt-transport-https
+      state: latest
+  - name: "Helm requires a repo"
+    shell: >
+     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+  - name: "Helm repo requires update"
+    become: true
+    ansible.builtin.apt:
+      upgrade: yes
+      update_cache: yes
+  - name: "Helm install"
+    become: true
+    ansible.builtin.apt:
+      name: helm
+      state: latest

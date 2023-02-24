@@ -7,25 +7,7 @@ The scripts will help you to install ansible on WSL (Windows Subsystem for Linux
 
 ## Steps to install
 
-#https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md
-Install PODMAN to enable getting Fedora-37 images pulled
-
-
-Run the:
-- *00_setup_prerequisite_tools.ps1*
-- *01_setup_wsl.ps1*
-
-scripts in Powershell as an administrator.
-
-Run *01.2_setup_wsl_Fedora-37-customizations.sh* script in a restarted Fedora-37 WSL to update it with basic toolsets
-
-Run the:
-- *01.3_setup_wsl_Fedora-37-customizations.ps1*
-- *01.4_setup_wsl_Fedora-37-save_snapshot.ps1*
-
-scripts in Powershell to finish WSL setup and save the rootfs snapshot into $HOME\Downloads\Fedora-37-wsl.tar
-
-*01.5_setup_wsl_Fedora-37-OPTIONAL-restore_snapshot.ps1* script can be used to restore from this image
+Run *01.2_setup_picard_ubuntu-20.04-customizations.sh* script to update it with basic toolsets
 
 Run the *02_install_ansible.sh* script in a restarted Fedora-37 WSL to install and set up Ansible
 
@@ -39,4 +21,4 @@ Run:
 - *03_ansible_installs/04_install_microshift.sh*
 - ...etc
 
-scripts in a restarted Fedora-37 WSL set up some predefined Ansible-managed components
+scripts in a restarted machine to set up some predefined Ansible-managed components
