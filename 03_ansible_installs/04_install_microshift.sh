@@ -5,6 +5,6 @@ sudo tar -xf openshift-client-linux.tar.gz -C /usr/local/bin oc kubectl
 # - name: "Copy Kubeconfig and test health"
 mkdir ~/.kube
 
-echo '# 04 Openshift' >> ~/.bash_profile
-echo 'source <(oc completion bash)' >> ~/.bash_profile
-echo '' >> ~/.bash_profile
+echo '# 04 Openshift' >> ~/.bashrc
+echo 'source <(oc completion bash)' >> ~/.bashrc
+echo '' >> ~/.bashrc

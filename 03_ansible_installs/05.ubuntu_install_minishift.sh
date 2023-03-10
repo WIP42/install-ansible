@@ -22,8 +22,27 @@ echo 'minikube unpause'
 echo 'minikube stop'
 echo 'minikube delete --all'
 
-echo '# 05 Kubernetes' >> ~/.profile
-echo 'source <(kubectl completion bash)' >> ~/.profile
-echo 'alias k=kubectl' >> ~/.profile
-echo 'complete -o default -F __start_kubectl k' >> ~/.profile
-echo '' >> ~/.profile
+echo '# 05 Kubernetes' >> ~/.bashrc
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+echo 'alias k=kubectl' >> ~/.bashrc
+echo 'complete -o default -F __start_kubectl k' >> ~/.bashrc
+echo '' >> ~/.bashrc
+echo '# More subcommand completions in ~/.bash_completion' >> ~/.bashrc
+echo '' >> ~/.bashrc
+
+git clone https://github.com/cykerway/complete-alias.git ~/ws/github.com/cykerway
+echo '. ~/ws/github.com/cykerway/complete-alias/complete_alias' >> ~/.bash_completion
+echo '' >> ~/.bash_completion
+echo "alias ko1='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-ot-t-az1.yaml -n dgk-ontwikkel'" >> ~/.bash_completion
+echo "alias kt1='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-ot-t-az1.yaml -n dgk-test'" >> ~/.bash_completion
+echo "alias ka1='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-a01-a-az1.yaml -n dgk-acceptatie'" >> ~/.bash_completion
+echo "alias kpp1='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-ap-p-az1.yaml -n dgk-preproductie'" >> ~/.bash_completion
+echo "alias kp1='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-ap-p-az1.yaml -n dgk-productie'" >> ~/.bash_completion
+echo '' >> ~/.bash_completion
+echo "alias ko2='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-ot-t-az2.yaml -n dgk-ontwikkel'" >> ~/.bash_completion
+echo "alias kt2='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-ot-t-az2.yaml -n dgk-test'" >> ~/.bash_completion
+echo "alias ka2='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-a01-a-az2.yaml -n dgk-acceptatie'" >> ~/.bash_completion
+echo "alias kpp2='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-ap-p-az2.yaml -n dgk-preproductie'" >> ~/.bash_completion
+echo "alias kp2='kubectl --kubeconfig ~/.kube/lpc-lpc-otap-ap-p-az2.yaml -n dgk-productie'" >> ~/.bash_completion
+echo '' >> ~/.bash_completion
+echo 'complete -o default -F _complete_alias "${!BASH_ALIASES[@]}"' >> ~/.bash_completion
