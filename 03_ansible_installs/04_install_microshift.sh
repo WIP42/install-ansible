@@ -1,3 +1,4 @@
+#!/bin/bash
 #based on: https://microshift.io/docs/getting-started/
 # - name: "Install Clients"
 curl -O https://mirror.openshift.com/pub/openshift-v4/$(uname -m)/clients/ocp/stable/openshift-client-linux.tar.gz

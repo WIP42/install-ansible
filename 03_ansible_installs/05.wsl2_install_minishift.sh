@@ -1,4 +1,4 @@
-#
+#!/bin/bash
 # - name: "Install Docker"
 echo 'Install Docker in windows with WSL2 option enabled and test after restart!'
 read a
