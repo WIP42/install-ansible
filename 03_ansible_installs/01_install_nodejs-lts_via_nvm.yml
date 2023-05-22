@@ -4,11 +4,44 @@
   hosts: localhost
   connection: local
   tasks:
-  - name: "nvm install"
-    shell: >
-     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
-     creates=/home/{{ ansible_user_id }}/.nvm/nvm.sh
-  - name: "lts node install"
-    shell: >
-     /bin/bash -c "source ~/.nvm/nvm.sh && nvm install --lts"
-     creates=/home/{{ ansible_user_id }}/.nvm/alias
+    - name: "bash-completion install"
+      become: true
+      ansible.builtin.apt:
+        name: bash-completion
+        state: latest
+    - name: "curl install"
+      become: true
+      ansible.builtin.apt:
+        name: curl
+        state: latest
+    - name: "vim install"
+      become: true
+      ansible.builtin.apt:
+        name: vim
+        state: latest
+    - name: "git install"
+      become: true
+      ansible.builtin.apt:
+        name: git
+        state: latest
+    - name: "git requires remembering logins"
+      shell: >
+        git config --global credential.helper cache
+    - name: "unzip install"
+      become: true
+      ansible.builtin.apt:
+        name: unzip
+        state: latest
+    - name: "zip install"
+      become: true
+      ansible.builtin.apt:
+        name: zip
+        state: latest
+    - name: "nvm install"
+      shell: >
+       curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.2/install.sh | bash
+       creates=/home/{{ ansible_user_id }}/.nvm/nvm.sh
+    - name: "lts node install"
+      shell: >
+       /bin/bash -c "source ~/.nvm/nvm.sh && nvm install --lts"
+       creates=/home/{{ ansible_user_id }}/.nvm/alias

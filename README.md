@@ -22,3 +22,7 @@ Run:
 - ...etc
 
 scripts in a restarted machine to set up some predefined Ansible-managed components
+
+# Misc
+
+```cat ~/.bash_history >> ~/.bash_history_total;sort -o ~/.bash_history_total{,}```

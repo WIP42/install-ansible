@@ -4,48 +4,45 @@
   hosts: localhost
   connection: local
   tasks:
-  - name: "unzip & zip install"
-    shell: >
-     sudo apt install -y unzip zip
-  - name: "sdkman install"
-    shell: >
-     curl -s "https://get.sdkman.io" | bash
-     creates=/home/{{ ansible_user_id }}/.sdkman/bin/sdkman-init.sh
-  - name: "java 11 latest install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install java `sdk list java|grep tem|grep 11|head -n 1|awk '{print $NF}'`"
-  - name: "java 17 latest install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install java `sdk list java|grep tem|grep 17|head -n 1|awk '{print $NF}'`"
-  - name: "java graalvm latest install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install java `sdk list java|grep GraalVM|awk '{print $NF}'`"
-  - name: "gradle install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install gradle"
-  - name: "groovy install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install groovy"
-  - name: "hadoop install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install hadoop"
-  - name: "kotlin install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install kotlin"
-  - name: "maven install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install maven"
-  - name: "micronaut install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install micronaut"
-  - name: "quarkus install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install quarkus"
-     echo '# 02 Quarkus' >> ~/.bashrc
-     echo 'source <(quarkus completion)' >> ~/.bashrc
-     echo 'alias q=quarkus' >> ~/.bashrc
-     echo 'complete -F _complete_quarkus q' >> ~/.bashrc
-     echo '' >> ~/.bashrc
-  - name: "spark install"
-    shell: >
-     bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install spark"
+    - name: "sdkman install"
+      shell: >
+       curl -s "https://get.sdkman.io" | bash
+       creates=/home/{{ ansible_user_id }}/.sdkman/bin/sdkman-init.sh
+    - name: "java 11 latest install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install java `sdk list java|grep tem|grep 11|head -n 1|awk '{print $NF}'`"
+    - name: "java 17 latest install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install java `sdk list java|grep tem|grep 17|head -n 1|awk '{print $NF}'`"
+    - name: "java graalvm latest install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install java `sdk list java|grep GraalVM|awk '{print $NF}'`"
+    - name: "gradle install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install gradle"
+    - name: "groovy install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install groovy"
+    - name: "hadoop install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install hadoop"
+    - name: "kotlin install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install kotlin"
+    - name: "maven install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install maven"
+    - name: "micronaut install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install micronaut"
+    - name: "quarkus install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install quarkus"
+       echo '# 02 Quarkus' >> ~/.bashrc
+       echo 'source <(quarkus completion)' >> ~/.bashrc
+       echo 'alias q=quarkus' >> ~/.bashrc
+       echo 'complete -F _complete_quarkus q' >> ~/.bashrc
+       echo '' >> ~/.bashrc
+    - name: "spark install"
+      shell: >
+       bash -lc "source /home/{{ ansible_user_id }}/.sdkman/src/sdkman-main.sh && sdk install spark"
