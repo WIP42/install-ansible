@@ -1,14 +1,9 @@
 # Install-ansible
 The scripts will help you to install ansible on WSL (Windows Subsystem for Linux).
 
-- It installs and uses podman for pullinf a standard fedora:37 container
-- Creates a custom Fedora-37 WSL root FS from podman container that is set as the default WSL image
-- Backs up the updated Fedora-37 root FS in case restore is needed.
+- Backs up the updated Alpine root FS in case restore is needed.
 
 ## Steps to install
-
-#https://github.com/containers/podman/blob/main/docs/tutorials/podman-for-windows.md
-Install PODMAN to enable getting Fedora-37 images pulled
 
 
 Run the:
